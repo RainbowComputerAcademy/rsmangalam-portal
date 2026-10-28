@@ -6,7 +6,7 @@
     <title>R.S. Mangalam Digital Portal | 623525</title>
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -156,7 +156,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* App-Like Animated Weather Banner */
+        /* App-Like Weather Banner */
         .weather-banner-app {
             position: relative;
             padding: 24px;
@@ -264,7 +264,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .day-rain-card {
@@ -273,10 +273,41 @@
             border: 1px solid rgba(56, 189, 248, 0.2);
             border-radius: 14px;
             text-align: center;
-            transition: transform 0.2s ease;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .day-rain-card:hover { transform: translateY(-2px); }
+        .day-rain-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.6);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        /* Hourly Rain Modal / Detail Box */
+        .hourly-modal-box {
+            display: none;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--secondary);
+            border-radius: 18px;
+            margin-bottom: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .hourly-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .hourly-time-pill {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
         .farmer-tip-box {
             padding: 16px 20px;
@@ -289,7 +320,7 @@
             gap: 14px;
         }
 
-        /* --- COLLAPSIBLE / ACCORDION VETRI PAYANAM BUS TIMINGS --- */
+        /* Collapsible Bus Accordions */
         .search-box {
             position: relative;
             margin-bottom: 16px;
@@ -390,7 +421,7 @@
             font-size: 0.85rem;
         }
 
-        /* Directory Grid */
+        /* Directory */
         .directory-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -418,10 +449,10 @@
             border-top: 1px solid var(--border-glow);
             color: var(--text-muted);
             font-size: 0.8rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Mobile Bottom Navigation Bar */
+        /* Mobile Bottom Nav */
         .mobile-bottom-nav {
             display: none;
             position: fixed;
@@ -485,13 +516,12 @@
         </div>
     </header>
 
-    <!-- Main Content Auto-Fitting Width -->
     <main>
 
         <!-- TAB 1: HOME & LIVE WEATHER APP BANNER -->
         <section id="tab-home" class="tab-content active">
             
-            <!-- App-Like Animated Weather Banner -->
+            <!-- App Weather Banner -->
             <div class="weather-banner-app glass-panel">
                 <div>
                     <span class="pincode-pill" style="margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> R.S. Mangalam (623525)</span>
@@ -507,12 +537,17 @@
             <div class="hero-grid">
                 <div class="glass-panel welcome-card">
                     <h2>R.S. Mangalam Civic & Agriculture Portal</h2>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">
-                        Access real-time 7-day agricultural rain forecasts for farmers, Vetri Payanam bus schedules, and essential local contacts instantly.
+                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                        Empowering R.S. Mangalam youth with practical software training and retail fashion collections.
                     </p>
-                    <a href="tel:9043446626" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; padding: 10px 18px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
-                        <i class="fa-solid fa-phone"></i> Contact Academy: 9043446626
-                    </a>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <a href="tel:9043446626" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; padding: 8px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
+                            <i class="fa-solid fa-phone"></i> Call: 9043446626
+                        </a>
+                        <a href="https://wa.me/917904619484" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; padding: 8px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp: 7904619484
+                        </a>
+                    </div>
                 </div>
 
                 <div class="glass-panel owner-card">
@@ -525,12 +560,12 @@
                 </div>
             </div>
 
-            <!-- 7-Day Rain Forecast Grid -->
-            <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <!-- 7-Day Rain Forecast Grid Header -->
+            <div style="margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
                 <h3 style="font-size: 1.15rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-calendar-days" style="color: #38bdf8;"></i> அடுத்த 7 நாட்கள் மழை கணிப்பு
                 </h3>
-                <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-rotate" id="refresh-icon"></i> Live</span>
+                <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-hand-pointer"></i> கிளிக் செய்து மணிநேர விபரம் பார்க்கவும்</span>
             </div>
 
             <div class="week-rain-grid" id="weekRainContainer">
@@ -543,13 +578,24 @@
                 <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
             </div>
 
+            <!-- Interactive Hourly Rain Explorer Modal -->
+            <div id="hourlyModal" class="hourly-modal-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 id="hourlyModalTitle" style="color: #38bdf8; font-size: 1rem;">மணிநேர மழை வாய்ப்பு (Hourly Forecast)</h4>
+                    <button onclick="closeHourlyModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="hourly-grid" id="hourlyModalGrid">
+                    <!-- Dynamic hourly pills injected via JavaScript -->
+                </div>
+            </div>
+
             <!-- Farmer Tip -->
             <div class="farmer-tip-box">
                 <div style="font-size: 1.8rem; color: #10b981;"><i class="fa-solid fa-wheat-awn"></i></div>
                 <div>
-                    <h4 style="color: #34d399; font-size: 0.95rem; margin-bottom: 2px;">விவசாயிகள் கவனத்திற்கு</h4>
+                    <h4 style="color: #34d399; font-size: 0.95rem; margin-bottom: 2px;">விவசாயிகள் கவனத்திற்கு (Farmers' Advisory)</h4>
                     <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
-                        மழைக்கால விவசாயப் பணிகளை திட்டமிட இந்த 7-நாள் நேரடி மழை கணிப்பு உதவியாக இருக்கும்.
+                        எந்த நாளில் எந்த மணிநேரத்தில் மழை பெய்யும் என்பதை மேலே உள்ள தேதிகளை கிளிக் செய்து பார்த்து விவசாயப் பணிகளை திட்டமிடுங்கள்.
                     </p>
                 </div>
             </div>
@@ -571,9 +617,7 @@
                 <!-- 1. Paramakudi -->
                 <div class="bus-accordion-item" data-route="paramakudi பரமக்குடி">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Paramakudi (பரமக்குடி)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Paramakudi (பரமக்குடி)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -588,9 +632,7 @@
                 <!-- 2. Madurai -->
                 <div class="bus-accordion-item" data-route="madurai மதுரை">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Madurai (மதுரை)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Madurai (மதுரை)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -604,9 +646,7 @@
                 <!-- 3. Sivagangai -->
                 <div class="bus-accordion-item" data-route="sivagangai சிவகங்கை">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Sivagangai (சிவகங்கை)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Sivagangai (சிவகங்கை)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -620,9 +660,7 @@
                 <!-- 4. Devakottai -->
                 <div class="bus-accordion-item" data-route="devakottai தேவகோட்டை">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Devakottai (தேவகோட்டை)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Devakottai (தேவகோட்டை)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -636,9 +674,7 @@
                 <!-- 5. Ramanathapuram / Aranmanai -->
                 <div class="bus-accordion-item" data-route="ramanathapuram aranmanai இராமநாதபுரம் அரண்மனை">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Ramanathapuram / Aranmanai (இராமநாதபுரம்)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Ramanathapuram / Aranmanai (இராமநாதபுரம்)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -652,9 +688,7 @@
                 <!-- 6. Thiruvadanai -->
                 <div class="bus-accordion-item" data-route="thiruvadanai திருவாடானை">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Thiruvadanai (திருவாடானை)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Thiruvadanai (திருவாடானை)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -668,9 +702,7 @@
                 <!-- 7. Uppur -->
                 <div class="bus-accordion-item" data-route="uppur உப்பூர்">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Uppur (உப்பூர்)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Uppur (உப்பூர்)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -684,9 +716,7 @@
                 <!-- 8. Anandhur -->
                 <div class="bus-accordion-item" data-route="anandhur ஆனந்தூர்">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Anandhur (ஆனந்தூர்)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Anandhur (ஆனந்தூர்)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -700,9 +730,7 @@
                 <!-- 9. Tirupattur -->
                 <div class="bus-accordion-item" data-route="tirupattur திருப்பத்தூர்">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Tirupattur (திருப்பத்தூர்)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Tirupattur (திருப்பத்தூர்)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -716,9 +744,7 @@
                 <!-- 10. Karaikudi -->
                 <div class="bus-accordion-item" data-route="karaikudi காரைக்குடி">
                     <div class="bus-accordion-header" onclick="toggleAccordion(this)">
-                        <div class="route-title">
-                            <span class="bus-tag">VETRI</span> Karaikudi (காரைக்குடி)
-                        </div>
+                        <div class="route-title"><span class="bus-tag">VETRI</span> Karaikudi (காரைக்குடி)</div>
                         <i class="fa-solid fa-chevron-down chevron"></i>
                     </div>
                     <div class="bus-accordion-body">
@@ -772,8 +798,9 @@
                 </span>
                 <h2>Rainbow Readymades & Computer Academy</h2>
                 <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Empowering R.S. Mangalam youth with practical software training and retail fashion collections.</p>
-                <div style="margin-top: 12px; font-weight: 600; color: #fff; font-size: 0.9rem;">
-                    <i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Call / WhatsApp: <a href="tel:9043446626" style="color: var(--secondary); text-decoration: none;">9043446626</a>
+                <div style="margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap;">
+                    <a href="tel:9043446626" style="color: var(--secondary); text-decoration: none; font-weight: 600;"><i class="fa-solid fa-phone"></i> Call: 9043446626</a>
+                    <a href="https://wa.me/917904619484" target="_blank" style="color: #25d366; text-decoration: none; font-weight: 600;"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 7904619484</a>
                 </div>
             </div>
 
@@ -804,7 +831,8 @@
     <footer>
         <p><strong>ரெயின்போ (Rainbow Readymades & Computer Academy)</strong></p>
         <p style="margin-top: 4px;">S.B.I வங்கி எதிர் சந்து, அரவிந்த் கண் மருத்துவமனை அருகில், R.S.மங்கலம் : 623525</p>
-        <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Ph: 9043446626 | Director: H. Riyasdeen Raja (M.C.A)</p>
+        <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Call: 9043446626 | <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp: 7904619484</p>
+        <p style="margin-top: 4px;">Founder & Director: H. Riyasdeen Raja (M.C.A)</p>
         <p style="margin-top: 8px; font-size: 0.7rem; color: #64748b;">© 2026 R.S. Mangalam Digital Portal. Designed for public community service.</p>
     </footer>
 
@@ -816,8 +844,10 @@
         <button class="mobile-nav-item" onclick="switchTab('academy', this)"><i class="fa-solid fa-graduation-cap"></i><span>Rainbow</span></button>
     </nav>
 
-    <!-- JavaScript Live Engine & Accordion Logic -->
+    <!-- JavaScript Engine -->
     <script>
+        let hourlyDataCache = null;
+
         function switchTab(tabId, el) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             const target = document.getElementById('tab-' + tabId);
@@ -827,45 +857,32 @@
             if (el) el.classList.add('active');
         }
 
-        // Accordion Toggle for Bus Timings
         function toggleAccordion(header) {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Optional: Close all others
             document.querySelectorAll('.bus-accordion-item').forEach(el => el.classList.remove('active'));
-
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            if (!isActive) item.classList.add('active');
         }
 
-        // Search Filter for Bus Accordions
         function filterBuses() {
             const query = document.getElementById('busSearch').value.toLowerCase();
             document.querySelectorAll('.bus-accordion-item').forEach(card => {
                 const routeData = card.getAttribute('data-route').toLowerCase();
                 const cardText = card.innerText.toLowerCase();
-                if (routeData.includes(query) || cardText.includes(query)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = (routeData.includes(query) || cardText.includes(query)) ? 'block' : 'none';
             });
         }
 
-        // Live Weather App Banner & 7-Day Rain Forecast Fetch
+        // Live Open-Meteo Satellite Weather & Hourly Explorer
         async function fetchRSMEnvironment() {
-            const icon = document.getElementById('refresh-icon');
-            if (icon) icon.classList.add('fa-spin');
-
             try {
                 const weatherRes = await fetch(
-                    'https://api.open-meteo.com/v1/forecast?latitude=9.8242&longitude=78.6653&current=temperature_2m,relative_humidity_2m,precipitation,uv_index&daily=precipitation_probability_max,precipitation_sum&timezone=Asia%2FKolkata'
+                    'https://api.open-meteo.com/v1/forecast?latitude=9.8242&longitude=78.6653&current=temperature_2m,relative_humidity_2m,precipitation,uv_index&daily=precipitation_probability_max,precipitation_sum&hourly=precipitation_probability,precipitation&timezone=Asia%2FKolkata'
                 );
                 const wData = await weatherRes.json();
+                hourlyDataCache = wData; // Cache for date click events
 
-                // App-Like Banner Visual Update based on live rain/sun
+                // Update App Banner Visuals
                 const bannerTitle = document.getElementById('weather-banner-title');
                 const bannerSub = document.getElementById('weather-banner-sub');
                 const appIcon = document.getElementById('weather-app-icon');
@@ -885,7 +902,7 @@
                     }
                 }
 
-                // 7-Day Forecast Cards
+                // Render 7-Day Forecast Cards
                 if (wData && wData.daily) {
                     const days = wData.daily.time;
                     const probs = wData.daily.precipitation_probability_max;
@@ -912,10 +929,10 @@
                             }
 
                             const cardHtml = `
-                                <div class="day-rain-card">
-                                    <div class="date-lbl">${formattedDate}</div>
+                                <div class="day-rain-card" onclick="showHourlyForecast('${dateStr}', '${formattedDate}')">
+                                    <div class="date-lbl" style="font-size:0.75rem; font-weight:700; color:#94a3b8;">${formattedDate}</div>
                                     <div class="pct-val" style="color: ${color}; font-size: 1.2rem; font-weight: 800; margin: 4px 0;">${pct}%</div>
-                                    <div class="mm-val" style="font-size: 0.7rem; color: #38bdf8;">${mm} mm மழை</div>
+                                    <div style="font-size: 0.7rem; color: #38bdf8;">${mm} mm மழை</div>
                                     <span style="font-size: 0.65rem; color: ${color}; font-weight: 700; display: block; margin-top: 3px;">${statusText}</span>
                                 </div>
                             `;
@@ -924,10 +941,60 @@
                     }
                 }
             } catch (err) {
-                console.warn("Weather API fallback applied:", err);
-            } finally {
-                if (icon) setTimeout(() => icon.classList.remove('fa-spin'), 600);
+                console.warn("Weather API load error:", err);
             }
+        }
+
+        // Show Hourly Rain Breakup on Date Click
+        function showHourlyForecast(dateStr, formattedDate) {
+            if (!hourlyDataCache || !hourlyDataCache.hourly) return;
+
+            const modal = document.getElementById('hourlyModal');
+            const title = document.getElementById('hourlyModalTitle');
+            const grid = document.getElementById('hourlyModalGrid');
+
+            title.innerText = `${formattedDate} - மணிநேர மழை வாய்ப்பு (Hourly Rain Risk)`;
+            grid.innerHTML = '';
+
+            const times = hourlyDataCache.hourly.time;
+            const probs = hourlyDataCache.hourly.precipitation_probability;
+
+            // Find time slots for target date (e.g., 06:00 AM, 09:00 AM, 12:00 PM, 03:00 PM, 06:00 PM, 09:00 PM)
+            const slotHours = [6, 9, 12, 15, 18, 21];
+
+            times.forEach((tStr, i) => {
+                if (tStr.startsWith(dateStr)) {
+                    const hour = new Date(tStr).getHours();
+                    if (slotHours.includes(hour)) {
+                        const prob = probs[i] || 0;
+                        let timeName = `${hour}:00`;
+                        if (hour === 6) timeName = "காலை 06:00 AM";
+                        if (hour === 9) timeName = "காலை 09:00 AM";
+                        if (hour === 12) timeName = "மதியம் 12:00 PM";
+                        if (hour === 15) timeName = "மதியம் 03:00 PM";
+                        if (hour === 18) timeName = "மாலை 06:00 PM";
+                        if (hour === 21) timeName = "இரவு 09:00 PM";
+
+                        let color = '#38bdf8';
+                        if (prob >= 60) color = '#f43f5e';
+                        else if (prob >= 30) color = '#f59e0b';
+
+                        grid.innerHTML += `
+                            <div class="hourly-time-pill">
+                                <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 600;">${timeName}</div>
+                                <div style="font-size: 1.1rem; font-weight: 800; color: ${color}; margin-top: 4px;">${prob}%</div>
+                            </div>
+                        `;
+                    }
+                }
+            });
+
+            modal.style.display = 'block';
+            modal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function closeHourlyModal() {
+            document.getElementById('hourlyModal').style.display = 'none';
         }
 
         window.addEventListener('DOMContentLoaded', () => {
