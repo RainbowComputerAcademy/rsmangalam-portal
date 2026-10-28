@@ -18,7 +18,7 @@
             --card-bg: rgba(30, 41, 59, 0.75);
             --border-glow: rgba(255, 255, 255, 0.12);
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #cbd5e1;
             --success: #10b981;
         }
 
@@ -53,7 +53,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-glow);
             padding: 12px 20px;
@@ -195,15 +195,19 @@
         }
 
         .welcome-card {
-            padding: 24px;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.1));
+            padding: 26px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.25), rgba(6, 182, 212, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
+        /* FIXED CLEAR TITLE COLOR */
         .welcome-card h2 {
             font-size: 1.6rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #fff, #93c5fd);
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(90deg, #ffffff, #67e8f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -212,9 +216,9 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(16, 185, 129, 0.15);
+            background: rgba(16, 185, 129, 0.2);
             color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -259,6 +263,29 @@
             margin-bottom: 4px;
         }
 
+        /* Share Button Styling */
+        .share-btn-main {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s ease;
+            margin-top: 14px;
+        }
+
+        .share-btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
         /* 7-Day Rain Forecast Grid */
         .week-rain-grid {
             display: grid;
@@ -269,8 +296,8 @@
 
         .day-rain-card {
             padding: 14px 10px;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(56, 189, 248, 0.25);
             border-radius: 14px;
             text-align: center;
             cursor: pointer;
@@ -279,26 +306,30 @@
 
         .day-rain-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(56, 189, 248, 0.6);
-            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(56, 189, 248, 0.7);
+            background: rgba(30, 41, 59, 0.95);
         }
 
-        /* Hourly Rain Modal / Detail Box */
+        /* Hourly Rain Modal Box */
         .hourly-modal-box {
             display: none;
             padding: 20px;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.98);
             border: 1px solid var(--secondary);
             border-radius: 18px;
             margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: fadeIn 0.3s ease;
+            position: relative;
+            z-index: 100;
         }
 
         .hourly-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
             gap: 10px;
-            margin-top: 12px;
+            margin-top: 14px;
+            margin-bottom: 16px;
         }
 
         .hourly-time-pill {
@@ -307,6 +338,26 @@
             border-radius: 12px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-btn-action {
+            background: rgba(244, 63, 94, 0.2);
+            color: #f43f5e;
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .close-btn-action:hover {
+            background: #f43f5e;
+            color: #fff;
         }
 
         .farmer-tip-box {
@@ -526,7 +577,7 @@
                 <div>
                     <span class="pincode-pill" style="margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> R.S. Mangalam (623525)</span>
                     <h3 id="weather-banner-title" style="font-size: 1.4rem; font-weight: 800; color: #fff;">நிகழ்நேர வானிலை தகவல்</h3>
-                    <p id="weather-banner-sub" style="font-size: 0.85rem; color: #94a3b8; margin-top: 4px;">தற்போதைய தட்பவெப்ப நிலை satellite மூலம் பெறப்படுகிறது...</p>
+                    <p id="weather-banner-sub" style="font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;">தற்போதைய தட்பவெப்ப நிலை satellite மூலம் பெறப்படுகிறது...</p>
                 </div>
                 <div class="weather-app-visual" id="weather-app-icon">
                     <i class="fa-solid fa-cloud-sun" style="color: #fbbf24;"></i>
@@ -537,16 +588,23 @@
             <div class="hero-grid">
                 <div class="glass-panel welcome-card">
                     <h2>R.S. Mangalam Civic & Agriculture Portal</h2>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">
                         Empowering R.S. Mangalam youth with practical software training and retail fashion collections.
                     </p>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <a href="tel:9043446626" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; padding: 8px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                        <a href="tel:9043446626" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; padding: 9px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
                             <i class="fa-solid fa-phone"></i> Call: 9043446626
                         </a>
-                        <a href="https://wa.me/917904619484" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; padding: 8px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
+                        <a href="https://wa.me/917904619484" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; padding: 9px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
                             <i class="fa-brands fa-whatsapp"></i> WhatsApp: 7904619484
                         </a>
+                    </div>
+                    
+                    <!-- Share Portal Button -->
+                    <div>
+                        <button onclick="sharePortalLink()" class="share-btn-main">
+                            <i class="fa-solid fa-share-nodes"></i> போர்ட்டலை பகிர்க (Share Portal Link)
+                        </button>
                     </div>
                 </div>
 
@@ -556,7 +614,7 @@
                     </div>
                     <h3>H. Riyasdeen Raja (M.C.A)</h3>
                     <div class="title">Founder & Director</div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">Rainbow Readymades & Computer Academy</div>
+                    <div style="font-size: 0.75rem; color: #cbd5e1;">Rainbow Readymades & Computer Academy</div>
                 </div>
             </div>
 
@@ -565,7 +623,7 @@
                 <h3 style="font-size: 1.15rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-calendar-days" style="color: #38bdf8;"></i> அடுத்த 7 நாட்கள் மழை கணிப்பு
                 </h3>
-                <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-hand-pointer"></i> கிளிக் செய்து மணிநேர விபரம் பார்க்கவும்</span>
+                <span style="font-size: 0.7rem; color: #38bdf8; font-weight: 600;"><i class="fa-solid fa-hand-pointer"></i> கிளிக் செய்து விபரம் பார்க்கவும்</span>
             </div>
 
             <div class="week-rain-grid" id="weekRainContainer">
@@ -581,11 +639,18 @@
             <!-- Interactive Hourly Rain Explorer Modal -->
             <div id="hourlyModal" class="hourly-modal-box">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h4 id="hourlyModalTitle" style="color: #38bdf8; font-size: 1rem;">மணிநேர மழை வாய்ப்பு (Hourly Forecast)</h4>
-                    <button onclick="closeHourlyModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+                    <h4 id="hourlyModalTitle" style="color: #38bdf8; font-size: 1rem; font-weight: 700;">மணிநேர மழை வாய்ப்பு (Hourly Forecast)</h4>
+                    <button onclick="closeHourlyModal()" style="background: rgba(255,255,255,0.1); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
+                
                 <div class="hourly-grid" id="hourlyModalGrid">
                     <!-- Dynamic hourly pills injected via JavaScript -->
+                </div>
+
+                <div style="text-align: right; margin-top: 10px;">
+                    <button onclick="closeHourlyModal()" class="close-btn-action">
+                        <i class="fa-solid fa-circle-xmark"></i> மூடு (Close Window)
+                    </button>
                 </div>
             </div>
 
@@ -797,7 +862,7 @@
                     <i class="fa-solid fa-star"></i> Featured Community Business
                 </span>
                 <h2>Rainbow Readymades & Computer Academy</h2>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Empowering R.S. Mangalam youth with practical software training and retail fashion collections.</p>
+                <p style="color: #cbd5e1; font-size: 0.85rem; margin-top: 6px;">Empowering R.S. Mangalam youth with practical software training and retail fashion collections.</p>
                 <div style="margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap;">
                     <a href="tel:9043446626" style="color: var(--secondary); text-decoration: none; font-weight: 600;"><i class="fa-solid fa-phone"></i> Call: 9043446626</a>
                     <a href="https://wa.me/917904619484" target="_blank" style="color: #25d366; text-decoration: none; font-weight: 600;"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 7904619484</a>
@@ -833,7 +898,7 @@
         <p style="margin-top: 4px;">S.B.I வங்கி எதிர் சந்து, அரவிந்த் கண் மருத்துவமனை அருகில், R.S.மங்கலம் : 623525</p>
         <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Call: 9043446626 | <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp: 7904619484</p>
         <p style="margin-top: 4px;">Founder & Director: H. Riyasdeen Raja (M.C.A)</p>
-        <p style="margin-top: 8px; font-size: 0.7rem; color: #64748b;">© 2026 R.S. Mangalam Digital Portal. Designed for public community service.</p>
+        <p style="margin-top: 8px; font-size: 0.7rem; color: #94a3b8;">© 2026 R.S. Mangalam Digital Portal. Designed for public community service.</p>
     </footer>
 
     <!-- Mobile Bottom Navigation -->
@@ -873,6 +938,22 @@
             });
         }
 
+        // Share Portal Functionality
+        function sharePortalLink() {
+            const shareData = {
+                title: 'R.S. Mangalam Digital Portal',
+                text: 'R.S.மங்கலம் மக்களுக்கான நேரடி மழை கணிப்பு, வெற்றி பயணம் பேருந்து நேரங்கள் & டிஜிட்டல் போர்ட்டல்:',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('போர்ட்டல் லிங்க் காப்பி செய்யப்பட்டது! WhatsApp-ல் பகிரலாம் (Link copied to clipboard!)');
+            }
+        }
+
         // Live Open-Meteo Satellite Weather & Hourly Explorer
         async function fetchRSMEnvironment() {
             try {
@@ -880,9 +961,8 @@
                     'https://api.open-meteo.com/v1/forecast?latitude=9.8242&longitude=78.6653&current=temperature_2m,relative_humidity_2m,precipitation,uv_index&daily=precipitation_probability_max,precipitation_sum&hourly=precipitation_probability,precipitation&timezone=Asia%2FKolkata'
                 );
                 const wData = await weatherRes.json();
-                hourlyDataCache = wData; // Cache for date click events
+                hourlyDataCache = wData;
 
-                // Update App Banner Visuals
                 const bannerTitle = document.getElementById('weather-banner-title');
                 const bannerSub = document.getElementById('weather-banner-sub');
                 const appIcon = document.getElementById('weather-app-icon');
@@ -902,7 +982,6 @@
                     }
                 }
 
-                // Render 7-Day Forecast Cards
                 if (wData && wData.daily) {
                     const days = wData.daily.time;
                     const probs = wData.daily.precipitation_probability_max;
@@ -930,7 +1009,7 @@
 
                             const cardHtml = `
                                 <div class="day-rain-card" onclick="showHourlyForecast('${dateStr}', '${formattedDate}')">
-                                    <div class="date-lbl" style="font-size:0.75rem; font-weight:700; color:#94a3b8;">${formattedDate}</div>
+                                    <div class="date-lbl" style="font-size:0.75rem; font-weight:700; color:#cbd5e1;">${formattedDate}</div>
                                     <div class="pct-val" style="color: ${color}; font-size: 1.2rem; font-weight: 800; margin: 4px 0;">${pct}%</div>
                                     <div style="font-size: 0.7rem; color: #38bdf8;">${mm} mm மழை</div>
                                     <span style="font-size: 0.65rem; color: ${color}; font-weight: 700; display: block; margin-top: 3px;">${statusText}</span>
@@ -945,7 +1024,6 @@
             }
         }
 
-        // Show Hourly Rain Breakup on Date Click
         function showHourlyForecast(dateStr, formattedDate) {
             if (!hourlyDataCache || !hourlyDataCache.hourly) return;
 
@@ -953,13 +1031,11 @@
             const title = document.getElementById('hourlyModalTitle');
             const grid = document.getElementById('hourlyModalGrid');
 
-            title.innerText = `${formattedDate} - மணிநேர மழை வாய்ப்பு (Hourly Rain Risk)`;
+            title.innerText = `${formattedDate} - மணிநேர மழை வாய்ப்பு`;
             grid.innerHTML = '';
 
             const times = hourlyDataCache.hourly.time;
             const probs = hourlyDataCache.hourly.precipitation_probability;
-
-            // Find time slots for target date (e.g., 06:00 AM, 09:00 AM, 12:00 PM, 03:00 PM, 06:00 PM, 09:00 PM)
             const slotHours = [6, 9, 12, 15, 18, 21];
 
             times.forEach((tStr, i) => {
@@ -981,7 +1057,7 @@
 
                         grid.innerHTML += `
                             <div class="hourly-time-pill">
-                                <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 600;">${timeName}</div>
+                                <div style="font-size: 0.75rem; color: #cbd5e1; font-weight: 600;">${timeName}</div>
                                 <div style="font-size: 1.1rem; font-weight: 800; color: ${color}; margin-top: 4px;">${prob}%</div>
                             </div>
                         `;
@@ -994,8 +1070,20 @@
         }
 
         function closeHourlyModal() {
-            document.getElementById('hourlyModal').style.display = 'none';
+            const modal = document.getElementById('hourlyModal');
+            if (modal) modal.style.display = 'none';
         }
+
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('hourlyModal');
+            if (!modal) return;
+            const isClickInside = modal.contains(event.target);
+            const isDayCard = event.target.closest('.day-rain-card');
+
+            if (!isClickInside && !isDayCard && modal.style.display === 'block') {
+                closeHourlyModal();
+            }
+        });
 
         window.addEventListener('DOMContentLoaded', () => {
             fetchRSMEnvironment();
