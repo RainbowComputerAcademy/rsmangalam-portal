@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +15,8 @@
             --secondary: #06b6d4;
             --accent: #f59e0b;
             --dark-bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --border-glow: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(30, 41, 59, 0.75);
+            --border-glow: rgba(255, 255, 255, 0.12);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --success: #10b981;
@@ -38,7 +38,6 @@
             padding-bottom: 90px;
         }
 
-        /* Glassmorphism Common Styles */
         .glass-panel {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -53,7 +52,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-glow);
             padding: 12px 24px;
@@ -102,7 +101,7 @@
             letter-spacing: 1px;
         }
 
-        /* Nav Links for Desktop */
+        /* Desktop Nav */
         .desktop-nav {
             display: flex;
             gap: 8px;
@@ -133,7 +132,7 @@
             box-shadow: 0 0 12px rgba(79, 70, 229, 0.2);
         }
 
-        /* Container Layout */
+        /* Main Layout */
         main {
             max-width: 1200px;
             margin: 24px auto;
@@ -154,7 +153,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Banner & Owner Profile Section */
+        /* Hero & Founder Profile Card */
         .hero-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -163,26 +162,17 @@
         }
 
         .welcome-card {
-            padding: 32px;
+            padding: 28px;
             background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(6, 182, 212, 0.1));
-            position: relative;
-            overflow: hidden;
         }
 
         .welcome-card h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             margin-bottom: 12px;
             background: linear-gradient(90deg, #fff, #93c5fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .welcome-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
         }
 
         .pincode-pill {
@@ -198,7 +188,6 @@
             font-weight: 600;
         }
 
-        /* Owner Profile Card */
         .owner-card {
             padding: 24px;
             text-align: center;
@@ -212,7 +201,7 @@
             position: relative;
             width: 110px;
             height: 110px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .profile-img-wrap img {
@@ -234,58 +223,62 @@
             font-size: 0.8rem;
             color: var(--accent);
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .owner-card .desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        /* Live Dashboard Weather Grid */
-        .dashboard-grid {
+        /* 7-Day Rain Forecast Grid for Farmers */
+        .week-rain-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 28px;
         }
 
-        .metric-card {
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .day-rain-card {
+            padding: 16px 12px;
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.2s ease;
         }
 
-        .metric-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--secondary);
+        .day-rain-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.5);
         }
 
-        .metric-info label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
+        .day-rain-card .date-lbl {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 700;
             margin-bottom: 4px;
         }
 
-        .metric-info .val {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
+        .day-rain-card .pct-val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 6px 0;
         }
 
-        /* Bus Schedule Section */
+        .day-rain-card .mm-val {
+            font-size: 0.75rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .farmer-tip-box {
+            padding: 18px 24px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Bus Section */
         .search-box {
             position: relative;
             margin-bottom: 20px;
@@ -302,11 +295,6 @@
             outline: none;
         }
 
-        .search-box input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
-        }
-
         .search-box i {
             position: absolute;
             left: 18px;
@@ -315,10 +303,7 @@
             color: var(--text-muted);
         }
 
-        .bus-list {
-            display: grid;
-            gap: 16px;
-        }
+        .bus-list { display: grid; gap: 16px; }
 
         .bus-card {
             padding: 20px;
@@ -327,12 +312,6 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 16px;
-            transition: transform 0.2s ease;
-        }
-
-        .bus-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(6, 182, 212, 0.4);
         }
 
         .bus-tag {
@@ -347,17 +326,10 @@
         .bus-route {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-weight: 700;
             font-size: 1.1rem;
             margin-top: 6px;
-        }
-
-        .time-badge-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 6px;
         }
 
         .time-badge {
@@ -369,44 +341,14 @@
             font-size: 0.85rem;
         }
 
-        .route-note {
-            font-size: 0.75rem;
-            color: #34d399;
-            background: rgba(16, 185, 129, 0.1);
-            padding: 3px 8px;
-            border-radius: 6px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        /* Directory Cards */
+        /* Directory */
         .directory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 16px;
         }
 
-        .dir-card {
-            padding: 20px;
-        }
-
-        .dir-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 12px;
-        }
-
-        .dir-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: rgba(79, 70, 229, 0.2);
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
+        .dir-card { padding: 20px; }
 
         .dir-contact {
             color: var(--secondary);
@@ -416,28 +358,9 @@
             align-items: center;
             gap: 6px;
             margin-top: 10px;
-            font-size: 0.9rem;
         }
 
-        /* Business Promo Hub */
-        .promo-hero {
-            padding: 28px;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(245, 158, 11, 0.15));
-        }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .course-card {
-            padding: 20px;
-            border-top: 4px solid var(--primary);
-        }
-
-        /* Footer Section */
+        /* Footer */
         footer {
             margin-top: 40px;
             text-align: center;
@@ -448,11 +371,7 @@
             line-height: 1.6;
         }
 
-        footer strong {
-            color: var(--text-main);
-        }
-
-        /* Mobile Navigation Bottom Bar */
+        /* Mobile Nav */
         .mobile-bottom-nav {
             display: none;
             position: fixed;
@@ -482,137 +401,149 @@
             border-radius: 10px;
         }
 
-        .mobile-nav-item i {
-            font-size: 1.2rem;
-        }
-
         .mobile-nav-item.active {
             color: var(--secondary);
             background: rgba(6, 182, 212, 0.1);
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-
-            .mobile-bottom-nav {
-                display: flex;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            body {
-                padding-bottom: 90px;
-            }
-
-            .welcome-card h2 {
-                font-size: 1.5rem;
-            }
+            .desktop-nav { display: none; }
+            .mobile-bottom-nav { display: flex; }
+            .hero-grid { grid-template-columns: 1fr; }
+            body { padding-bottom: 90px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="header-container">
             <a href="#" class="brand-logo" onclick="switchTab('home')">
-                <div class="logo-badge">
-                    <i class="fa-solid fa-cloud-sun"></i>
-                </div>
+                <div class="logo-badge"><i class="fa-solid fa-cloud-sun-rain"></i></div>
                 <div class="brand-text">
                     <h1>R.S. MANGALAM</h1>
                     <span>DIGITAL PORTAL</span>
                 </div>
             </a>
 
-            <!-- Desktop Nav Menu -->
             <nav class="desktop-nav">
-                <button class="nav-btn active" onclick="switchTab('home', this)">
-                    <i class="fa-solid fa-house"></i> Home
-                </button>
-                <button class="nav-btn" onclick="switchTab('bus', this)">
-                    <i class="fa-solid fa-bus"></i> Vetri Payanam
-                </button>
-                <button class="nav-btn" onclick="switchTab('directory', this)">
-                    <i class="fa-solid fa-address-book"></i> Directory
-                </button>
-                <button class="nav-btn" onclick="switchTab('academy', this)">
-                    <i class="fa-solid fa-graduation-cap"></i> Rainbow Hub
-                </button>
+                <button class="nav-btn active" onclick="switchTab('home', this)"><i class="fa-solid fa-house"></i> Home</button>
+                <button class="nav-btn" onclick="switchTab('bus', this)"><i class="fa-solid fa-bus"></i> Vetri Payanam</button>
+                <button class="nav-btn" onclick="switchTab('directory', this)"><i class="fa-solid fa-address-book"></i> Directory</button>
+                <button class="nav-btn" onclick="switchTab('academy', this)"><i class="fa-solid fa-graduation-cap"></i> Rainbow Hub</button>
             </nav>
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main Content -->
     <main>
 
-        <!-- TAB 1: HOME & DASHBOARD -->
+        <!-- TAB 1: HOME & 7-DAY FARMERS' RAIN MONITOR -->
         <section id="tab-home" class="tab-content active">
             
-            <!-- Hero Grid -->
             <div class="hero-grid">
                 <div class="glass-panel welcome-card">
-                    <div class="pincode-pill">
-                        <i class="fa-solid fa-location-dot"></i> Ramanathapuram District | Pincode: 623525
-                    </div>
-                    <h2 style="margin-top: 14px;">Civic Utility & Community Portal</h2>
-                    <p>Welcome to the official digital hub of R.S. Mangalam town. Access real-time weather metrics, air quality monitoring, Vetri Payanam bus schedules, and essential emergency contacts in one convenient interface.</p>
+                    <div class="pincode-pill"><i class="fa-solid fa-location-dot"></i> Ramanathapuram District | Pincode: 623525</div>
+                    <h2 style="margin-top: 14px;">R.S. Mangalam Civic & Agriculture Portal</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                        Welcome to the official digital hub of R.S. Mangalam. Access real-time 7-day rainfall forecasts for farming, Vetri Payanam bus schedules, and essential contacts.
+                    </p>
                     <a href="tel:9043446626" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
                         <i class="fa-solid fa-phone"></i> Contact Academy: 9043446626
                     </a>
                 </div>
 
-                <!-- Owner Profile Card -->
                 <div class="glass-panel owner-card">
                     <div class="profile-img-wrap">
                         <img src="riyas.jpg" alt="H. Riyasdeen Raja" onerror="this.src='https://via.placeholder.com/110?text=Riyas'">
                     </div>
                     <h3>H. Riyasdeen Raja (M.C.A)</h3>
-                    <div class="title">Founder & Managing Partner</div>
-                    <div class="desc">Rainbow Readymades & Computer Academy</div>
+                    <div class="title">Founder & Director</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Rainbow Readymades & Computer Academy</div>
                 </div>
             </div>
 
-            <!-- Live Weather Metrics Dashboard -->
-            <h3 style="margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-chart-line" style="color: var(--secondary);"></i> Live Environmental Status (R.S. Mangalam - 623525)
+            <!-- 7-DAY RAIN FORECAST HEADER -->
+            <div style="margin-top: 8px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-calendar-days" style="color: #38bdf8;"></i>
+                    அடுத்த 7 நாட்கள் மழை கணிப்பு (7-Day Rain Forecast)
+                </h3>
+                <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 20px; font-weight: 600;">
+                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> Auto Live Sync
+                </span>
+            </div>
+
+            <!-- 7-DAY RAIN CARDS CONTAINER -->
+            <div class="week-rain-grid" id="weekRainContainer">
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+                <div class="day-rain-card"><div class="date-lbl">Loading...</div></div>
+            </div>
+
+            <!-- FARMER ADVISORY BANNER -->
+            <div class="farmer-tip-box">
+                <div style="font-size: 2rem; color: #10b981;"><i class="fa-solid fa-wheat-awn"></i></div>
+                <div>
+                    <h4 style="color: #34d399; margin-bottom: 4px;">விவசாயிகள் கவனத்திற்கு (Farmers' Monsoon Alert)</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        பருவமழை காலத்தில் வயல்களில் அதிக நீர் தேங்காதவாறு வடிகால் வசதிகளை சீரமைக்கவும். உரம் மற்றும் பூச்சிக்கொல்லி தெளிப்பதை மழை இல்லாத நாட்களில் திட்டமிடுங்கள்.
+                    </p>
+                </div>
+            </div>
+
+            <!-- LIVE CURRENT METRICS -->
+            <h3 style="margin-bottom: 14px; font-size: 1.1rem; color: var(--text-muted);">
+                <i class="fa-solid fa-gauge-high" style="color: var(--secondary);"></i> இன்றைய நேரடி சூழல் (Today's Live Metrics)
             </h3>
 
-            <div class="dashboard-grid">
-                <div class="glass-panel metric-card">
-                    <div class="metric-icon" style="color: #f43f5e;"><i class="fa-solid fa-temperature-high"></i></div>
-                    <div class="metric-info">
-                        <label>Temperature</label>
-                        <div class="val" id="temp-val">Loading...</div>
+            <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div class="glass-panel" style="padding: 20px; display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 52px; height: 52px; border-radius: 16px; background: rgba(6, 182, 212, 0.15); color: #06b6d4; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.75rem; color: #94a3b8; font-weight: 700;">இன்றைய மழை (Precipitation)</label>
+                        <div id="rain-val" style="font-size: 1.2rem; font-weight: 800; color: #fff;">சரிபார்க்கிறது...</div>
+                        <span id="rain-badge" style="font-size: 0.75rem; color: #38bdf8; font-weight: 600;">--</span>
                     </div>
                 </div>
 
-                <div class="glass-panel metric-card">
-                    <div class="metric-icon" style="color: #10b981;"><i class="fa-solid fa-wind"></i></div>
-                    <div class="metric-info">
-                        <label>Air Quality (US AQI)</label>
-                        <div class="val" id="aqi-val">Loading...</div>
+                <div class="glass-panel" style="padding: 20px; display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 52px; height: 52px; border-radius: 16px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.75rem; color: #94a3b8; font-weight: 700;">வெப்பம் (Temperature)</label>
+                        <div id="temp-val" style="font-size: 1.2rem; font-weight: 800; color: #fff;">சரிபார்க்கிறது...</div>
+                        <span id="uv-badge" style="font-size: 0.75rem; color: #fbbf24; font-weight: 600;">--</span>
                     </div>
                 </div>
 
-                <div class="glass-panel metric-card">
-                    <div class="metric-icon" style="color: var(--accent);"><i class="fa-solid fa-sun"></i></div>
-                    <div class="metric-info">
-                        <label>Sunlight & UV</label>
-                        <div class="val" id="uv-val">Loading...</div>
+                <div class="glass-panel" style="padding: 20px; display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 52px; height: 52px; border-radius: 16px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.75rem; color: #94a3b8; font-weight: 700;">காற்றின் ஈரம் (Humidity)</label>
+                        <div id="humidity-val" style="font-size: 1.2rem; font-weight: 800; color: #fff;">சரிபார்க்கிறது...</div>
+                        <span id="humidity-badge" style="font-size: 0.75rem; color: #93c5fd; font-weight: 600;">--</span>
                     </div>
                 </div>
 
-                <div class="glass-panel metric-card">
-                    <div class="metric-icon" style="color: #06b6d4;"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
-                    <div class="metric-info">
-                        <label>Humidity & Rain</label>
-                        <div class="val" id="rain-val">Loading...</div>
+                <div class="glass-panel" style="padding: 20px; display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 52px; height: 52px; border-radius: 16px; background: rgba(16, 185, 129, 0.15); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.75rem; color: #94a3b8; font-weight: 700;">காற்றின் தரம் (Air Quality)</label>
+                        <div id="aqi-val" style="font-size: 1.2rem; font-weight: 800; color: #fff;">சரிபார்க்கிறது...</div>
+                        <span id="aqi-badge" style="font-size: 0.75rem; color: #34d399; font-weight: 600;">--</span>
                     </div>
                 </div>
             </div>
@@ -622,7 +553,7 @@
         <!-- TAB 2: VETRI PAYANAM BUS TIMINGS -->
         <section id="tab-bus" class="tab-content">
             <h2 style="margin-bottom: 8px;">Vetri Payanam Bus Schedules (வெற்றி பயணம்)</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Official timetable for Vetri Payanam bus services originating and passing through R.S. Mangalam.</p>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Official timetable for Vetri Payanam bus services passing through R.S. Mangalam.</p>
 
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -630,8 +561,6 @@
             </div>
 
             <div class="bus-list" id="busContainer">
-                
-                <!-- 1. Paramakudi -->
                 <div class="glass-panel bus-card" data-route="paramakudi பரமக்குடி">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -641,13 +570,12 @@
                             <span>Paramakudi (பரமக்குடி)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
+                    <div style="text-align: right;">
                         <div class="time-badge"><i class="fa-regular fa-clock"></i> 06:30 AM, 07:00 AM, 08:00 AM, 10:05 AM, 11:35 AM, 12:25 PM, 02:15 PM, 02:35 PM, 04:15 PM, 05:05 PM, 06:30 PM, 08:00 PM, 08:30 PM</div>
-                        <span class="route-note">10:05 AM trip goes via Sayalgudi (சாயல்குடி வழியா)</span>
+                        <span style="font-size: 0.75rem; color: #34d399; display: block; margin-top: 4px;">10:05 AM trip via Sayalgudi (சாயல்குடி வழியா)</span>
                     </div>
                 </div>
 
-                <!-- 2. Madurai -->
                 <div class="glass-panel bus-card" data-route="madurai மதுரை">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -657,12 +585,9 @@
                             <span>Madurai (மதுரை)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 04:30 AM, 06:30 AM, 10:25 AM, 12:35 PM, 01:30 PM, 02:50 PM, 06:50 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 04:30 AM, 06:30 AM, 10:25 AM, 12:35 PM, 01:30 PM, 02:50 PM, 06:50 PM</div>
                 </div>
 
-                <!-- 3. Sivagangai -->
                 <div class="glass-panel bus-card" data-route="sivagangai சிவகங்கை">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -672,12 +597,9 @@
                             <span>Sivagangai (சிவகங்கை)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 06:30 AM, 08:10 AM, 09:25 AM, 10:25 AM, 12:35 PM, 02:50 PM, 04:10 PM, 05:55 PM, 08:10 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 06:30 AM, 08:10 AM, 09:25 AM, 10:25 AM, 12:35 PM, 02:50 PM, 04:10 PM, 05:55 PM, 08:10 PM</div>
                 </div>
 
-                <!-- 4. Devakottai -->
                 <div class="glass-panel bus-card" data-route="devakottai தேவகோட்டை">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -687,27 +609,21 @@
                             <span>Devakottai (தேவகோட்டை)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 12:25 PM, 02:30 PM, 06:15 PM, 07:10 PM, 08:10 PM, 10:00 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 12:25 PM, 02:30 PM, 06:15 PM, 07:10 PM, 08:10 PM, 10:00 PM</div>
                 </div>
 
-                <!-- 5. Ramanathapuram / Aranmanai -->
                 <div class="glass-panel bus-card" data-route="ramanathapuram aranmanai இராமநாதபுரம் அரண்மனை">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
                         <div class="bus-route">
                             <span>R.S. Mangalam</span>
                             <i class="fa-solid fa-arrow-right" style="color: var(--secondary); font-size: 0.9rem;"></i>
-                            <span>Ramanathapuram / Aranmanai (இராமநாதபுரம் / அரண்மனை)</span>
+                            <span>Ramanathapuram / Aranmanai (இராமநாதபுரம்)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 06:00 AM, 07:05 AM, 07:35 AM, 11:00 AM, 01:15 PM, 01:30 PM, 04:00 PM, 05:45 PM, 06:25 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 06:00 AM, 07:05 AM, 07:35 AM, 11:00 AM, 01:15 PM, 01:30 PM, 04:00 PM, 05:45 PM, 06:25 PM</div>
                 </div>
 
-                <!-- 6. Thiruvadanai -->
                 <div class="glass-panel bus-card" data-route="thiruvadanai திருவாடானை">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -717,12 +633,9 @@
                             <span>Thiruvadanai (திருவாடானை)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 08:00 AM, 10:30 AM, 10:50 AM, 12:25 PM, 02:30 PM, 02:50 PM, 07:10 PM, 08:10 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 08:00 AM, 10:30 AM, 10:50 AM, 12:25 PM, 02:30 PM, 02:50 PM, 07:10 PM, 08:10 PM</div>
                 </div>
 
-                <!-- 7. Uppur -->
                 <div class="glass-panel bus-card" data-route="uppur உப்பூர்">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -732,12 +645,9 @@
                             <span>Uppur (உப்பூர்)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 05:05 AM, 07:00 AM, 08:25 AM, 09:25 AM, 10:30 AM, 11:00 AM, 11:35 AM, 01:20 PM, 02:30 PM, 04:40 PM, 06:00 PM, 07:30 PM, 08:25 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 05:05 AM, 07:00 AM, 08:25 AM, 09:25 AM, 10:30 AM, 11:00 AM, 11:35 AM, 01:20 PM, 02:30 PM, 04:40 PM, 06:00 PM, 07:30 PM, 08:25 PM</div>
                 </div>
 
-                <!-- 8. Anandhur -->
                 <div class="glass-panel bus-card" data-route="anandhur ஆனந்தூர்">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -747,12 +657,9 @@
                             <span>Anandhur (ஆனந்தூர்)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 04:30 AM, 06:15 AM, 08:10 AM, 10:05 AM, 12:00 PM, 02:50 PM, 03:20 PM, 04:10 PM, 06:15 PM, 07:10 PM, 08:10 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 04:30 AM, 06:15 AM, 08:10 AM, 10:05 AM, 12:00 PM, 02:50 PM, 03:20 PM, 04:10 PM, 06:15 PM, 07:10 PM, 08:10 PM</div>
                 </div>
 
-                <!-- 9. Tirupattur -->
                 <div class="glass-panel bus-card" data-route="tirupattur திருப்பத்தூர்">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -762,12 +669,9 @@
                             <span>Tirupattur (திருப்பத்தூர்)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 10:05 AM, 05:55 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 10:05 AM, 05:55 PM</div>
                 </div>
 
-                <!-- 10. Karaikudi -->
                 <div class="glass-panel bus-card" data-route="karaikudi காரைக்குடி">
                     <div>
                         <span class="bus-tag">VETRI PAYANAM</span>
@@ -777,110 +681,75 @@
                             <span>Karaikudi (காரைக்குடி)</span>
                         </div>
                     </div>
-                    <div class="time-badge-container">
-                        <div class="time-badge"><i class="fa-regular fa-clock"></i> 12:25 PM, 07:10 PM</div>
-                    </div>
+                    <div class="time-badge"><i class="fa-regular fa-clock"></i> 12:25 PM, 07:10 PM</div>
                 </div>
-
             </div>
         </section>
 
-        <!-- TAB 3: DIGITAL DIRECTORY -->
+        <!-- TAB 3: DIRECTORY -->
         <section id="tab-directory" class="tab-content">
-            <h2 style="margin-bottom: 8px;">R.S. Mangalam Town Directory</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Important phone contacts and civic services.</p>
+            <h2 style="margin-bottom: 8px;">R.S. Mangalam Directory</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Essential helpline and emergency government desk numbers.</p>
 
             <div class="directory-grid">
-                
                 <div class="glass-panel dir-card">
-                    <div class="dir-header">
-                        <div class="dir-icon"><i class="fa-solid fa-building-columns"></i></div>
-                        <div>
-                            <h4>Taluk Office</h4>
-                            <span style="font-size: 0.75rem; color: var(--text-muted);">Administrative Services</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">New Taluk Office Building, R.S. Mangalam.</p>
-                    <a href="tel:04571222001" class="dir-contact"><i class="fa-solid fa-phone"></i> Call Emergency Desk</a>
+                    <h4>Taluk Office</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">New Taluk Office Building, R.S. Mangalam.</p>
+                    <a href="tel:04571222001" class="dir-contact"><i class="fa-solid fa-phone"></i> Call Desk</a>
                 </div>
 
                 <div class="glass-panel dir-card">
-                    <div class="dir-header">
-                        <div class="dir-icon" style="color: #f43f5e; background: rgba(244, 63, 94, 0.2);"><i class="fa-solid fa-user-shield"></i></div>
-                        <div>
-                            <h4>Police Station</h4>
-                            <span style="font-size: 0.75rem; color: var(--text-muted);">Law & Order</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Main Road, R.S. Mangalam.</p>
-                    <a href="tel:100" class="dir-contact" style="color: #f43f5e;"><i class="fa-solid fa-phone"></i> Dial 100 / Emergency</a>
+                    <h4>Police Station</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Main Road, R.S. Mangalam.</p>
+                    <a href="tel:100" class="dir-contact" style="color: #f43f5e;"><i class="fa-solid fa-phone"></i> Dial 100</a>
                 </div>
 
                 <div class="glass-panel dir-card">
-                    <div class="dir-header">
-                        <div class="dir-icon" style="color: #eab308; background: rgba(234, 179, 8, 0.2);"><i class="fa-solid fa-bolt"></i></div>
-                        <div>
-                            <h4>EB TNEB Office</h4>
-                            <span style="font-size: 0.75rem; color: var(--text-muted);">Electricity Board</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Power Substation Road, R.S. Mangalam.</p>
+                    <h4>EB TNEB Office</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Power Substation Road, R.S. Mangalam.</p>
                     <a href="tel:1912" class="dir-contact" style="color: #eab308;"><i class="fa-solid fa-phone"></i> Helpline 1912</a>
                 </div>
 
                 <div class="glass-panel dir-card">
-                    <div class="dir-header">
-                        <div class="dir-icon" style="color: #10b981; background: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-hospital"></i></div>
-                        <div>
-                            <h4>Government Hospital</h4>
-                            <span style="font-size: 0.75rem; color: var(--text-muted);">Medical Care</span>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">GH Road, R.S. Mangalam.</p>
+                    <h4>Government Hospital</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">GH Road, R.S. Mangalam.</p>
                     <a href="tel:108" class="dir-contact" style="color: #10b981;"><i class="fa-solid fa-phone"></i> Ambulance 108</a>
                 </div>
-
             </div>
         </section>
 
         <!-- TAB 4: RAINBOW ACADEMY & READYMADES -->
         <section id="tab-academy" class="tab-content">
-            
-            <div class="glass-panel promo-hero">
-                <span class="pincode-pill" style="margin-bottom: 12px; background: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">
-                    <i class="fa-solid fa-star"></i> Featured Community Business & Academy
+            <div class="glass-panel" style="padding: 28px; margin-bottom: 24px; background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(245, 158, 11, 0.15));">
+                <span class="pincode-pill" style="margin-bottom: 12px; background: rgba(245, 158, 11, 0.2); color: #fbbf24;">
+                    <i class="fa-solid fa-star"></i> Featured Community Business
                 </span>
                 <h2>Rainbow Readymades & Computer Academy</h2>
-                <p style="color: var(--text-muted); margin-top: 8px;">Empowering R.S. Mangalam youth with practical software courses and offering quality readymade fashion collections.</p>
+                <p style="color: var(--text-muted); margin-top: 8px;">Empowering R.S. Mangalam youth with practical software training and retail fashion collections.</p>
                 <div style="margin-top: 14px; font-weight: 600; color: #fff;">
                     <i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Call / WhatsApp: <a href="tel:9043446626" style="color: var(--secondary); text-decoration: none;">9043446626</a>
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 16px;">Computer Academy & Retail Offerings</h3>
-            
-            <div class="course-grid">
-                
-                <div class="glass-panel course-card">
-                    <h4 style="color: #fff; margin-bottom: 6px;">Core Java & Web Basics</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Object-oriented programming, logic building, HTML/CSS, and foundational software engineering skills.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                <div class="glass-panel" style="padding: 20px; border-top: 4px solid var(--primary);">
+                    <h4>Core Java & Web Basics</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">Object-oriented coding, logic building, HTML/CSS, and software engineering foundations.</p>
                     <span class="bus-tag">SUMMER & REGULAR BATCH</span>
                 </div>
 
-                <div class="glass-panel course-card" style="border-top-color: var(--secondary);">
-                    <h4 style="color: #fff; margin-bottom: 6px;">LibreOffice & Office Suite</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Document processing, spreadsheet management, presentation slides, and typing basics for students.</p>
+                <div class="glass-panel" style="padding: 20px; border-top: 4px solid var(--secondary);">
+                    <h4>LibreOffice Suite</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">Document processing, spreadsheet formulas, slide presentations, and typing practice.</p>
                     <span class="bus-tag" style="background: rgba(6, 182, 212, 0.2); color: #a5f3fc;">CERTIFICATE COURSE</span>
                 </div>
 
-                <div class="glass-panel course-card" style="border-top-color: var(--accent);">
-                    <h4 style="color: #fff; margin-bottom: 6px;">Rainbow Readymades</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Quality clothing, kids readymades, shirts, and festive apparel for local families.</p>
+                <div class="glass-panel" style="padding: 20px; border-top: 4px solid var(--accent);">
+                    <h4>Rainbow Readymades</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">Quality family clothing, kids readymades, shirts, and festive apparel store.</p>
                     <span class="bus-tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">RETAIL STORE</span>
                 </div>
-
             </div>
-
         </section>
 
     </main>
@@ -889,83 +758,112 @@
     <footer>
         <p><strong>ரெயின்போ (Rainbow Readymades & Computer Academy)</strong></p>
         <p style="margin-top: 4px;">S.B.I வங்கி எதிர் சந்து, அரவிந்த் கண் மருத்துவமனை அருகில், R.S.மங்கலம் : 623525</p>
-        <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Ph: 9043446626 | Founder: H. Riyasdeen Raja (M.C.A)</p>
+        <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> Ph: 9043446626 | Director: H. Riyasdeen Raja (M.C.A)</p>
         <p style="margin-top: 10px; font-size: 0.75rem; color: #64748b;">© 2026 R.S. Mangalam Digital Portal. Designed for public community service.</p>
     </footer>
 
-    <!-- Mobile Bottom Navigation Bar -->
+    <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav">
-        <button class="mobile-nav-item active" onclick="switchTab('home', this)">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-        </button>
-        <button class="mobile-nav-item" onclick="switchTab('bus', this)">
-            <i class="fa-solid fa-bus"></i>
-            <span>Bus</span>
-        </button>
-        <button class="mobile-nav-item" onclick="switchTab('directory', this)">
-            <i class="fa-solid fa-address-book"></i>
-            <span>Directory</span>
-        </button>
-        <button class="mobile-nav-item" onclick="switchTab('academy', this)">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Rainbow</span>
-        </button>
+        <button class="mobile-nav-item active" onclick="switchTab('home', this)"><i class="fa-solid fa-house"></i><span>Home</span></button>
+        <button class="mobile-nav-item" onclick="switchTab('bus', this)"><i class="fa-solid fa-bus"></i><span>Bus</span></button>
+        <button class="mobile-nav-item" onclick="switchTab('directory', this)"><i class="fa-solid fa-address-book"></i><span>Directory</span></button>
+        <button class="mobile-nav-item" onclick="switchTab('academy', this)"><i class="fa-solid fa-graduation-cap"></i><span>Rainbow</span></button>
     </nav>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript Live Engine -->
     <script>
-        // Tab Switcher
         function switchTab(tabId, el) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             const target = document.getElementById('tab-' + tabId);
             if (target) target.classList.add('active');
 
-            document.querySelectorAll('.nav-btn, .mobile-nav-item').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            if (el) {
-                el.classList.add('active');
-            }
+            document.querySelectorAll('.nav-btn, .mobile-nav-item').forEach(btn => btn.classList.remove('active'));
+            if (el) el.classList.add('active');
         }
 
-        // Search Filter for Bus Routes
         function filterBuses() {
             const query = document.getElementById('busSearch').value.toLowerCase();
-            const cards = document.querySelectorAll('.bus-card');
-
-            cards.forEach(card => {
+            document.querySelectorAll('.bus-card').forEach(card => {
                 const routeData = card.getAttribute('data-route').toLowerCase();
                 const cardText = card.innerText.toLowerCase();
-
-                if (routeData.includes(query) || cardText.includes(query)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = (routeData.includes(query) || cardText.includes(query)) ? 'flex' : 'none';
             });
         }
 
-        // Live Open-Meteo Weather & AQI Fetch for R.S. Mangalam (Lat: 9.8242, Lon: 78.6653)
+        // Live Open-Meteo Fetch for 7-Day Agricultural Forecast for R.S. Mangalam (Lat: 9.8242, Lon: 78.6653)
         async function fetchRSMEnvironment() {
+            const icon = document.getElementById('refresh-icon');
+            if (icon) icon.classList.add('fa-spin');
+
             try {
-                // Weather, UV Index, Humidity & Precipitation
+                // Fetch Current + 7-Day Daily Forecast
                 const weatherRes = await fetch(
-                    'https://api.open-meteo.com/v1/forecast?latitude=9.8242&longitude=78.6653&current=temperature_2m,relative_humidity_2m,precipitation,uv_index&timezone=Asia%2FKolkata'
+                    'https://api.open-meteo.com/v1/forecast?latitude=9.8242&longitude=78.6653&current=temperature_2m,relative_humidity_2m,precipitation,uv_index&daily=precipitation_probability_max,precipitation_sum,temperature_2m_max,temperature_2m_min&timezone=Asia%2FKolkata'
                 );
                 const wData = await weatherRes.json();
 
-                if (wData && wData.current) {
-                    document.getElementById('temp-val').innerText = `${wData.current.temperature_2m} °C`;
-                    document.getElementById('uv-val').innerText = `${wData.current.uv_index} UV Index`;
-                    document.getElementById('rain-val').innerText = `${wData.current.relative_humidity_2m}% RH (${wData.current.precipitation} mm)`;
+                if (wData && wData.daily) {
+                    const days = wData.daily.time;
+                    const probs = wData.daily.precipitation_probability_max;
+                    const sums = wData.daily.precipitation_sum;
+
+                    const container = document.getElementById('weekRainContainer');
+                    if (container) {
+                        container.innerHTML = ''; // Clear loading placehold
+
+                        days.forEach((dateStr, idx) => {
+                            const dateObj = new Date(dateStr);
+                            const formattedDate = dateObj.toLocaleDateString('ta-IN', { day: 'numeric', month: 'short', weekday: 'short' });
+                            const pct = probs[idx] || 0;
+                            const mm = sums[idx] || 0;
+
+                            let color = '#38bdf8';
+                            let statusText = 'தெளிவான நாள்';
+
+                            if (pct >= 65) {
+                                color = '#f43f5e';
+                                statusText = 'கனமழை வாய்ப்பு';
+                            } else if (pct >= 35) {
+                                color = '#f59e0b';
+                                statusText = 'மிதமான மழை';
+                            }
+
+                            const cardHtml = `
+                                <div class="day-rain-card">
+                                    <div class="date-lbl">${formattedDate}</div>
+                                    <div class="pct-val" style="color: ${color};">${pct}%</div>
+                                    <div class="mm-val">${mm} mm மழை</div>
+                                    <span style="font-size: 0.7rem; color: ${color}; font-weight: 700; display: block; margin-top: 4px;">${statusText}</span>
+                                </div>
+                            `;
+                            container.innerHTML += cardHtml;
+                        });
+                    }
                 }
 
-                // Air Quality Data (US AQI)
+                // Current Metrics Display
+                if (wData && wData.current) {
+                    const temp = wData.current.temperature_2m;
+                    const humidity = wData.current.relative_humidity_2m;
+                    const precip = wData.current.precipitation;
+                    const uv = wData.current.uv_index;
+
+                    document.getElementById('temp-val').innerText = `${temp} °C`;
+                    document.getElementById('uv-badge').innerText = uv >= 7 ? '● அதிக வெயில் (High Sun)' : '● மிதமான வெயில் (Moderate Sun)';
+
+                    document.getElementById('humidity-val').innerText = `${humidity}%`;
+                    document.getElementById('humidity-badge').innerText = humidity > 85 ? '● அதிக ஈரம் (High Moisture)' : '● இயல்பான காற்று ஈரம்';
+
+                    if (precip > 0) {
+                        document.getElementById('rain-val').innerText = `${precip} mm`;
+                        document.getElementById('rain-badge').innerText = '● தற்போது மழை பெய்கிறது';
+                    } else {
+                        document.getElementById('rain-val').innerText = 'மழை இல்லை';
+                        document.getElementById('rain-badge').innerText = '● மேகமூட்டம் / உலர் நிலை';
+                    }
+                }
+
+                // Air Quality Index Fetch
                 const aqiRes = await fetch(
                     'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=9.8242&longitude=78.6653&current=us_aqi'
                 );
@@ -973,21 +871,22 @@
 
                 if (aqiData && aqiData.current) {
                     const aqi = aqiData.current.us_aqi;
-                    let status = "Good";
-                    if (aqi > 50) status = "Moderate";
-                    if (aqi > 100) status = "Unhealthy";
-                    document.getElementById('aqi-val').innerText = `${aqi} AQI (${status})`;
+                    document.getElementById('aqi-val').innerText = `${aqi} AQI`;
+                    document.getElementById('aqi-badge').innerText = aqi <= 50 ? '● சுத்தமான காற்று (Good Air)' : '● மிதமான காற்று தரம்';
                 }
+
             } catch (err) {
-                console.warn("Environment API Fetch Fallback Enabled:", err);
-                document.getElementById('temp-val').innerText = '32.0 °C';
-                document.getElementById('aqi-val').innerText = '42 AQI (Good)';
-                document.getElementById('uv-val').innerText = '6.5 UV Index';
-                document.getElementById('rain-val').innerText = '65% RH (0 mm)';
+                console.warn("Satellite fetch error, applying fallback:", err);
+            } finally {
+                if (icon) setTimeout(() => icon.classList.remove('fa-spin'), 600);
             }
         }
 
-        window.addEventListener('DOMContentLoaded', fetchRSMEnvironment);
+        // Initialize and setup 1-minute auto refresh timer
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchRSMEnvironment();
+            setInterval(fetchRSMEnvironment, 60000);
+        });
     </script>
 </body>
 </html>
