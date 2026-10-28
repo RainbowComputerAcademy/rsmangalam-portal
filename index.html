@@ -200,7 +200,6 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* FIXED CLEAR TITLE COLOR */
         .welcome-card h2 {
             font-size: 1.6rem;
             font-weight: 800;
@@ -268,17 +267,18 @@
             background: linear-gradient(135deg, #059669, #10b981);
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 9px 18px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
             transition: all 0.2s ease;
-            margin-top: 14px;
+            margin-top: 12px;
+            text-decoration: none;
         }
 
         .share-btn-main:hover {
@@ -600,11 +600,14 @@
                         </a>
                     </div>
                     
-                    <!-- Share Portal Button -->
-                    <div>
+                    <!-- Share Portal & WhatsApp Share Buttons -->
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;">
                         <button onclick="sharePortalLink()" class="share-btn-main">
-                            <i class="fa-solid fa-share-nodes"></i> போர்ட்டலை பகிர்க (Share Portal Link)
+                            <i class="fa-solid fa-share-nodes"></i> போர்ட்டலை பகிர்க (Share)
                         </button>
+                        <a href="https://api.whatsapp.com/send?text=🌧️%20R.S.மங்கலம்%20மக்களுக்கான%20நேரடி%20மழை%20கணிப்பு%20&%20வெற்றி%20பயணம்%20பேருந்து%20நேரங்கள்:%20https://rainbowcomputeracademy.github.io/rsmangalam-portal/" target="_blank" class="share-btn-main" style="background: linear-gradient(135deg, #25d366, #128c7e);">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் பகிர்க
+                        </a>
                     </div>
                 </div>
 
