@@ -1,0 +1,25 @@
+# Operating System temporary files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor & IDE settings (VS Code, WebStorm, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Web build caches & Log files
+*.log
+.cache/
+dist/
+node_modules/
+
+# Environment or private keys (if added in the future)
+.env
+*.pem
+*.key
